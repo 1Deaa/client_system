@@ -4,7 +4,7 @@ CXX = x86_64-w64-mingw32-g++
 
 CXXFLAGS = -Wall -Werror -Wextra -static-libgcc -static-libstdc++
 
-SRCS = main.cpp client_system.cpp add_client.cpp
+SRCS = main.cpp add_client.cpp client_system.cpp list_clients.cpp search_clients.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 
