@@ -55,12 +55,12 @@ void	ListClients(string fileName)
 	if (!File.is_open())
 	{
 		cerr << "Couldn't open file: " << fileName << endl;
-		exit(EXIT_FAILURE);
+		return ;
 	}
 	PrintHeader(fileName);
 	while (getline(File, Line))
 	{
-		client = ExtractRecordLine(Line);
+		client = ExtractRecordLine(Line, DELIMITER);
 		cout << "| " << setw(16) << left << client.accountNumber 
              << "| " << setw(10) << left << client.pinCode 
              << "| " << setw(39) << left << client.Name
