@@ -24,7 +24,7 @@ void	AddNewClient(string filename)
 	{
 		cout << "Adding New Client: \n" << endl;
 		client = EnterClientData();
-		record = CreateRecordLine(client);
+		record = CreateRecordLine(client, DELIMITER);
 		File << record << endl;
 		File.close();
 		cout << "\nAdded new client successfully, do you want to add more clients? ";
