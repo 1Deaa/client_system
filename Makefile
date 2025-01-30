@@ -4,7 +4,7 @@ CXX = g++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++17
 
-SRCS = main.cpp add_client.cpp client_system.cpp list_clients.cpp
+SRCS = main.cpp add_client.cpp client_system.cpp list_clients.cpp search_clients.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 
