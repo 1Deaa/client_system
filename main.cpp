@@ -14,6 +14,7 @@
 
 int main(void)
 {
-	ListClients("Clients.txt");
+	string	fileName = "Clients.txt";
+	SearchForClient(fileName);
 	return (0);
 }
