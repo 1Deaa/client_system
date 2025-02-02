@@ -4,6 +4,8 @@ CXX = g++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++17
 
+INCLUDE = -I include_linux
+
 SRCS = main.cpp systems.cpp utils.cpp
 
 OBJ = $(SRCS:.cpp=.o)
@@ -11,10 +13,10 @@ OBJ = $(SRCS:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(INCLUDE) $(OBJ) -o $(NAME)
 
 %.o : %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ)
