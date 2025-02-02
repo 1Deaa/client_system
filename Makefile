@@ -1,10 +1,10 @@
-NAME = banksystem
+NAME = client_system
 
 CXX = g++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++17
 
-SRCS = main.cpp add_client.cpp client_system.cpp list_clients.cpp search_clients.cpp
+SRCS = main.cpp systems.cpp utils.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 

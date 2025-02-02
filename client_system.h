@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   banksys.hpp                                        :+:      :+:    :+:   */
+/*   client_system.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drahwanj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,15 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BANKSYS_HPP
-# define BANKSYS_HPP
+#ifndef CLIENT_SYSTEM_H
+# define CLIENT_SYSTEM_H
 
 # define DELIMITER "#//#"
+# define NOTFOUND "NOF"
+# define TEMPFILE "X9tG7Lq2ZfA8B3N1.txt"
+# define CLEAN_SCREEN "clear"
+# define GO_BACK "read -p '\n\nPress Enter to go back to Main Menu...' var"
 
 # include <iostream>
 # include <string.h>
 # include <fstream>
 # include <iomanip>
+# include <vector>
 
 using namespace std;
 
@@ -31,17 +36,24 @@ typedef struct client
 	double	accountBalance;
 } t_client;
 
-//CLIENT_SYSTEM
-t_client	EnterClientData(void);
-string		CreateRecordLine(t_client client, string sep = DELIMITER);
-t_client	ExtractRecordLine(string record, string sep = DELIMITER);
+//SYSTEMS
+void		ListClientSystem(string fileName);
+void		SearchClientSystem(string fileName);
+void		DeleteClientSystem(string fileName);
+void		AddClientSystem(string fileName);
+void		UpdateClientSystem(string fileName);
+int			ShowMainMenu(void);
+//UTILS
+int			CountLines(string fileName);
+void		PrintHeader(string fileName);
+void		PrintFooter(void);
+bool		DeleteClient(string fileName, string Record);
 void		PrintClientData(t_client client);
-
-//ADD
-void	AddNewClient(string filename);
-//LIST
-void	ListClients(string fileName);
-//SEARCH
-void	SearchForClient(string fileName);
+string		CreateRecordLine(t_client client, string sep);
+t_client	ExtractRecordLine(string record, string sep);
+t_client	EnterClientData(void);
+string		SearchForRecord(string fileName, string accnum);
+bool		UpdateClient(string fileName, t_client client);
+void		PrintMainMenu(void);
 
 #endif
