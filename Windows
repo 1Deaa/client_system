@@ -1,0 +1,29 @@
+NAME = client_system.exe
+
+CXX = x86_64-w64-mingw32-g++
+
+CXXFLAGS = -Wall -Werror -Wextra -std=c++17 -static
+
+SRCS = main.cpp systems.cpp utils.cpp
+
+INCLUDE = -I include_windows
+
+OBJ = $(SRCS:.cpp=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) $(INCLUDE) $(OBJ) -o $(NAME)
+
+%.o : %.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $< -o $@
+
+clean:
+	rm -rf $(OBJ)
+
+fclean: clean
+	rm -rf $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
