@@ -33,7 +33,7 @@ int	CountLines(string fileName)
 
 void	PrintHeader(string fileName)
 {
-	cout << setw(50) <<"Client List (" << CountLines(fileName) << ") Client(s)" << endl;
+	cout << "                                    Client List (" << CountLines(fileName) << ") Client(s)" << endl;
 	cout << "_____________________________________________________________________________________________________" << endl;
 	cout << "                                                                                                     " << endl;
 	cout << "| Account Number  | Pin Code  | Client Name                            | Phone          | Balance    " << endl;
@@ -49,7 +49,7 @@ bool	DeleteClient(string fileName, string Record)
 {
 	fstream			file;
 	fstream			new_file;
-	string			line = " ";
+	string			line;
 
 	new_file.open(TEMPFILE, ios::out);
 	file.open(fileName, ios::in);
@@ -125,7 +125,7 @@ t_client	ExtractRecordLine(string record, string sep)
 
 t_client	EnterClientData(void)
 {
-	t_client client;
+	t_client	client;
 
 	printf("Enter Account Number? ");
 	cin >> client.accountNumber;
