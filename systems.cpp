@@ -76,7 +76,7 @@ void	DeleteClientSystem(string fileName)
 			cout << "Couldn't delete client!" << endl;
 			return ;
 		}
-		cout << "\n\nClient Deleted Successfully." << endl << endl;
+		cout << "\n\nClient Deleted Successfully.\n" << endl;
 	}
 	else
 	{
@@ -97,13 +97,18 @@ void	AddClientSystem(string fileName)
 		cout << "Adding New Client: \n" << endl;
 		client = EnterClientData();
 		record = CreateRecordLine(client, DELIMITER);
+		if (SearchForRecord(fileName, client.accountNumber) != NOTFOUND)
+		{
+			cout << "\nClient with this Account Number already exist!\n";
+			return ;
+		}
 		File << record << endl;
 		File.close();
 		cout << "\nAdded new client successfully, do you want to add more clients? ";
 		cin >> Ans;
 		if (Ans == "Y" || Ans == "y" || Ans == "yes" || Ans == "Yes" || Ans == "YES")
 		{
-			system("clear"); // NOTE: Change for Windows "cls"
+			system(CLEAN_SCREEN);
 			AddClientSystem(fileName);
 		}
 	}
