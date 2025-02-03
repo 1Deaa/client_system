@@ -1,0 +1,17 @@
+name: Compilation Check Makefile
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Linux Make Check
+      run: make re
+    - name: Windows Make Check
+      run: |
+        sudo apt-get install mingw-w64
+        make -f Windows re
