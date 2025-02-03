@@ -10,8 +10,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Linux Make Check
-      run: make re
+      run: |
+        make re
+        make clean
+    - name: Run on Linux Check
+      run: |
+        ./client_system
     - name: Windows Make Check
       run: |
         sudo apt-get install mingw-w64
         make -f Windows re
+        make clean
